@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: /home/runner/work/sedaro-nano/sedaro-nano/web
+        working-directory: /home/runner/work/sedaro-nano/web
 
     strategy:
       matrix:
