@@ -5,7 +5,7 @@ on:
       workflows: ['Node.js CI', 'Python application']
       types: [completed]
       branches:
-          - 'master'
+          - 'main'
 
 jobs:
 
