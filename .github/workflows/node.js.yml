@@ -4,10 +4,9 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_run:
+      workflows: ['Python application']
+      types: [completed]
 
 jobs:
   build:
