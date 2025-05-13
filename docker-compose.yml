@@ -8,6 +8,7 @@ services:
       - ./web/:/web/
       - /web/node_modules/
     image: 624507112707.dkr.ecr.us-east-1.amazonaws.com/ram-interview-web
+    
   app:
     container_name: app
     build:
@@ -19,3 +20,23 @@ services:
       - ./app/:/app/
       - /app/instance/
     image: 624507112707.dkr.ecr.us-east-1.amazonaws.com/ram-interview-api
+
+  elasticsearch:
+    image: elasticsearch:7.17.3
+    environment:
+      - discovery.type=single-node
+  
+  kibana:
+    image: kibana:7.17.3
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - 5601:5601
+  
+  shipper:
+    image: docker.elastic.co/beats/filebeat:8.14.0
+    user: root
+    volumes:
+      - /var/lib/docker:/var/lib/docker:ro
+      - ./filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - /var/run/docker.sock:/var/run/docker.sock
