@@ -7,6 +7,7 @@ services:
     volumes:
       - ./web/:/web/
       - /web/node_modules/
+    image: 624507112707.dkr.ecr.us-east-1.amazonaws.com/ram-interview-web
   app:
     container_name: app
     build:
@@ -17,3 +18,4 @@ services:
     volumes:
       - ./app/:/app/
       - /app/instance/
+    image: 624507112707.dkr.ecr.us-east-1.amazonaws.com/ram-interview-api
