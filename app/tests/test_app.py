@@ -21,3 +21,4 @@ def test_home(client):
     """Test the home route."""
     response = client.get('/')
     assert response.status_code == 200
+    
